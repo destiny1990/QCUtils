@@ -33,15 +33,17 @@ namespace QCUtils
             }
             comBox_domain.Items.Clear();
             comBox_project.Items.Clear();
-            tdconn = new TDConnection();
+
             try
             {
+                tdconn = new TDConnection();
                 tdconn.InitConnectionEx(tbx_serverURL.Text);
                 tdconn.Login(tbx_loginname.Text, tbx_pwd.Text);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("身份验证失败！");
+                MessageBox.Show("身份验证失败!错误原因:"+ex.ToString());
+                return;
             }
             List domainList = tdconn.DomainsList;
             foreach (var domain in domainList)
