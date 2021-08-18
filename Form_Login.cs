@@ -39,18 +39,19 @@ namespace QCUtils
                 tdconn = new TDConnection();
                 tdconn.InitConnectionEx(tbx_serverURL.Text);
                 tdconn.Login(tbx_loginname.Text, tbx_pwd.Text);
+                List domainList = tdconn.DomainsList;
+                foreach (var domain in domainList)
+                    comBox_domain.Items.Add(domain);
+                List projectList = tdconn.ProjectsList;
+                foreach (var domain in projectList)
+                    comBox_project.Items.Add(domain);
+                MessageBox.Show("身份验证成功！");
             }
             catch(Exception ex)
             {
                 MessageBox.Show("身份验证失败!错误原因:"+ex.ToString());
                 return;
             }
-            List domainList = tdconn.DomainsList;
-            foreach (var domain in domainList)
-                comBox_domain.Items.Add(domain);
-            List projectList = tdconn.ProjectsList;
-            foreach (var domain in projectList)
-                comBox_project.Items.Add(domain);
         }
 
         private void btn_login_Click(object sender, EventArgs e)
