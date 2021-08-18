@@ -31,16 +31,16 @@ namespace QCUtils
         {
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_filepath = new System.Windows.Forms.Button();
+            this.tbx_filepath = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbx_testcase_path = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_export_background = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label_progress = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbx_testcase_path = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbx_filepath = new System.Windows.Forms.TextBox();
-            this.btn_filepath = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
@@ -53,6 +53,8 @@ namespace QCUtils
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(265, 528);
             this.treeView1.TabIndex = 0;
+            this.treeView1.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // groupBox1
             // 
@@ -69,6 +71,73 @@ namespace QCUtils
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "操作面板";
+            // 
+            // btn_filepath
+            // 
+            this.btn_filepath.Location = new System.Drawing.Point(352, 191);
+            this.btn_filepath.Name = "btn_filepath";
+            this.btn_filepath.Size = new System.Drawing.Size(44, 23);
+            this.btn_filepath.TabIndex = 6;
+            this.btn_filepath.Text = "浏览";
+            this.btn_filepath.UseVisualStyleBackColor = true;
+            this.btn_filepath.Click += new System.EventHandler(this.btn_filepath_Click);
+            // 
+            // tbx_filepath
+            // 
+            this.tbx_filepath.Location = new System.Drawing.Point(101, 193);
+            this.tbx_filepath.Name = "tbx_filepath";
+            this.tbx_filepath.Size = new System.Drawing.Size(245, 21);
+            this.tbx_filepath.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 196);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "保存路径：";
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "主题",
+            "测试名称",
+            "描述",
+            "步骤名",
+            "输入要素",
+            "预期结果"});
+            this.checkedListBox1.Location = new System.Drawing.Point(101, 86);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(245, 100);
+            this.checkedListBox1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "用例详情：";
+            // 
+            // tbx_testcase_path
+            // 
+            this.tbx_testcase_path.Location = new System.Drawing.Point(101, 20);
+            this.tbx_testcase_path.Multiline = true;
+            this.tbx_testcase_path.Name = "tbx_testcase_path";
+            this.tbx_testcase_path.Size = new System.Drawing.Size(245, 60);
+            this.tbx_testcase_path.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "当前目录地址：";
             // 
             // btn_export_background
             // 
@@ -95,73 +164,6 @@ namespace QCUtils
             this.label_progress.Size = new System.Drawing.Size(17, 12);
             this.label_progress.TabIndex = 4;
             this.label_progress.Text = "0%";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "当前目录地址：";
-            // 
-            // tbx_testcase_path
-            // 
-            this.tbx_testcase_path.Location = new System.Drawing.Point(101, 20);
-            this.tbx_testcase_path.Multiline = true;
-            this.tbx_testcase_path.Name = "tbx_testcase_path";
-            this.tbx_testcase_path.Size = new System.Drawing.Size(245, 60);
-            this.tbx_testcase_path.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "用例详情：";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "主题",
-            "测试名称",
-            "描述",
-            "步骤名",
-            "输入要素",
-            "预期结果"});
-            this.checkedListBox1.Location = new System.Drawing.Point(101, 86);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(245, 100);
-            this.checkedListBox1.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 196);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "保存路径：";
-            // 
-            // tbx_filepath
-            // 
-            this.tbx_filepath.Location = new System.Drawing.Point(101, 193);
-            this.tbx_filepath.Name = "tbx_filepath";
-            this.tbx_filepath.Size = new System.Drawing.Size(245, 21);
-            this.tbx_filepath.TabIndex = 5;
-            // 
-            // btn_filepath
-            // 
-            this.btn_filepath.Location = new System.Drawing.Point(352, 191);
-            this.btn_filepath.Name = "btn_filepath";
-            this.btn_filepath.Size = new System.Drawing.Size(44, 23);
-            this.btn_filepath.TabIndex = 6;
-            this.btn_filepath.Text = "浏览";
-            this.btn_filepath.UseVisualStyleBackColor = true;
-            this.btn_filepath.Click += new System.EventHandler(this.btn_filepath_Click);
             // 
             // groupBox2
             // 
