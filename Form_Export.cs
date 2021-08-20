@@ -198,6 +198,7 @@ namespace QCUtils
                         #endregion
                         //进度传递
                         int progress = i * 100 / cur;
+                        progress = progress > 100 ? 100 : progress;
                         bgWorker.ReportProgress(progress, "Working");
                     }
                     #endregion

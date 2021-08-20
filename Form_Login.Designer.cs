@@ -31,17 +31,17 @@ namespace QCUtils
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbx_loginname = new System.Windows.Forms.TextBox();
-            this.tbx_pwd = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.btn_verify = new System.Windows.Forms.Button();
-            this.btn_login = new System.Windows.Forms.Button();
-            this.comBox_domain = new System.Windows.Forms.ComboBox();
+            this.tbx_pwd = new System.Windows.Forms.TextBox();
+            this.tbx_loginname = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comBox_project = new System.Windows.Forms.ComboBox();
+            this.comBox_domain = new System.Windows.Forms.ComboBox();
+            this.btn_login = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbx_serverURL = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,6 +70,49 @@ namespace QCUtils
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请先进行身份认证";
             // 
+            // btn_verify
+            // 
+            this.btn_verify.Location = new System.Drawing.Point(217, 35);
+            this.btn_verify.Name = "btn_verify";
+            this.btn_verify.Size = new System.Drawing.Size(75, 23);
+            this.btn_verify.TabIndex = 4;
+            this.btn_verify.Text = "身份认证";
+            this.btn_verify.UseVisualStyleBackColor = true;
+            this.btn_verify.Click += new System.EventHandler(this.btn_verify_Click);
+            // 
+            // tbx_pwd
+            // 
+            this.tbx_pwd.Location = new System.Drawing.Point(55, 48);
+            this.tbx_pwd.Name = "tbx_pwd";
+            this.tbx_pwd.PasswordChar = '*';
+            this.tbx_pwd.Size = new System.Drawing.Size(156, 21);
+            this.tbx_pwd.TabIndex = 3;
+            // 
+            // tbx_loginname
+            // 
+            this.tbx_loginname.Location = new System.Drawing.Point(55, 21);
+            this.tbx_loginname.Name = "tbx_loginname";
+            this.tbx_loginname.Size = new System.Drawing.Size(156, 21);
+            this.tbx_loginname.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "密码：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "登录名：";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comBox_project);
@@ -84,65 +127,23 @@ namespace QCUtils
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "请选择域及项目";
             // 
-            // label2
+            // comBox_project
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "登录名：";
+            this.comBox_project.FormattingEnabled = true;
+            this.comBox_project.Location = new System.Drawing.Point(55, 46);
+            this.comBox_project.Name = "comBox_project";
+            this.comBox_project.Size = new System.Drawing.Size(156, 20);
+            this.comBox_project.Sorted = true;
+            this.comBox_project.TabIndex = 6;
             // 
-            // label3
+            // comBox_domain
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "密码：";
-            // 
-            // tbx_loginname
-            // 
-            this.tbx_loginname.Location = new System.Drawing.Point(55, 21);
-            this.tbx_loginname.Name = "tbx_loginname";
-            this.tbx_loginname.Size = new System.Drawing.Size(156, 21);
-            this.tbx_loginname.TabIndex = 2;
-            // 
-            // tbx_pwd
-            // 
-            this.tbx_pwd.Location = new System.Drawing.Point(55, 48);
-            this.tbx_pwd.Name = "tbx_pwd";
-            this.tbx_pwd.Size = new System.Drawing.Size(156, 21);
-            this.tbx_pwd.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "域：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "项目：";
-            // 
-            // btn_verify
-            // 
-            this.btn_verify.Location = new System.Drawing.Point(217, 35);
-            this.btn_verify.Name = "btn_verify";
-            this.btn_verify.Size = new System.Drawing.Size(75, 23);
-            this.btn_verify.TabIndex = 4;
-            this.btn_verify.Text = "身份认证";
-            this.btn_verify.UseVisualStyleBackColor = true;
-            this.btn_verify.Click += new System.EventHandler(this.btn_verify_Click);
+            this.comBox_domain.FormattingEnabled = true;
+            this.comBox_domain.Location = new System.Drawing.Point(55, 20);
+            this.comBox_domain.Name = "comBox_domain";
+            this.comBox_domain.Size = new System.Drawing.Size(156, 20);
+            this.comBox_domain.Sorted = true;
+            this.comBox_domain.TabIndex = 5;
             // 
             // btn_login
             // 
@@ -154,23 +155,23 @@ namespace QCUtils
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // comBox_domain
+            // label5
             // 
-            this.comBox_domain.FormattingEnabled = true;
-            this.comBox_domain.Location = new System.Drawing.Point(55, 20);
-            this.comBox_domain.Name = "comBox_domain";
-            this.comBox_domain.Size = new System.Drawing.Size(156, 20);
-            this.comBox_domain.Sorted = true;
-            this.comBox_domain.TabIndex = 5;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "项目：";
             // 
-            // comBox_project
+            // label4
             // 
-            this.comBox_project.FormattingEnabled = true;
-            this.comBox_project.Location = new System.Drawing.Point(55, 46);
-            this.comBox_project.Name = "comBox_project";
-            this.comBox_project.Size = new System.Drawing.Size(156, 20);
-            this.comBox_project.Sorted = true;
-            this.comBox_project.TabIndex = 6;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "域：";
             // 
             // tbx_serverURL
             // 
